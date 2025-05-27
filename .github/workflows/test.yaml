@@ -5,6 +5,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GOPRIVATE: github.com
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
