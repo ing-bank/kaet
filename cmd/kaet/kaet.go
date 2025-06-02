@@ -32,7 +32,7 @@ func Run() {
 		5. Write results
 	*/
 
-	fmt.Printf("%s\n\n", types.KAETBanner)
+	gologger.Silent().Msgf("%s\n\n%s\n\n", types.KAETBanner, types.Disclaimer)
 
 	runner := runner.FromOptions(options)
 	defer runner.Close()
