@@ -1,0 +1,7 @@
+apiVersion: v2
+name: kaet
+description: KAET - Kubernetes Auto Exploit Tool
+
+type: application
+version: 0.1.0
+appVersion: "1.16.0"

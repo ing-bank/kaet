@@ -1,0 +1,30 @@
+name: Publish Helm Chart to Github
+
+on:
+  push:
+
+jobs:
+  release-helm-chart:
+    runs-on: ubuntu-latest
+
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v4
+      
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.18.0
+
+      - name: Login to GHCR
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Push Chart to GHCR
+        run: |
+          helm package charts/kaet
+          helm push kaet-*.tgz oci://ghcr.io/ing-bank
