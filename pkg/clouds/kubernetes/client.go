@@ -26,31 +26,20 @@ func NewClientFromOptions(options *types.Options) (lc *types.KubernetesClient) {
 
 	// always try first to create the custom client
 	client, err = getCustomClient(lc, options)
-	if err != nil {
-		gologger.Error().
-			Str("code_location", "clouds/kubernetes/client").
-			Str("error", err.Error()).
-			Msg("kubernetes custom client\n")
-	}
 
 	if client == nil {
 		client, err = getKubeConfigClient(lc, options)
-		if err != nil {
-			gologger.Error().
-				Str("code_location", "clouds/kubernetes/client").
-				Str("error", err.Error()).
-				Msg("kubernetes kubeconfig client\n")
-		}
 	}
 
 	if client == nil {
 		client, err = getInPodClient(lc, options)
-		if err != nil {
-			gologger.Error().
-				Str("code_location", "clouds/kubernetes/client").
-				Str("error", err.Error()).
-				Msg("kubernetes in pod client\n")
-		}
+	}
+
+	if err != nil {
+		gologger.Error().
+			Str("code_location", "clouds/kubernetes/client").
+			Str("error", err.Error()).
+			Msg("could not create kubernetes client\n")
 	}
 
 	if client == nil {
