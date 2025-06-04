@@ -24,7 +24,7 @@ RUN go install
 
 FROM alpine:3.21
 
-# Containers incide ICHP must run as nonroot
+# Containers must run as nonroot
 ARG UID=10001
 ARG USER=nonexistent
 
