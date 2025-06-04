@@ -26,7 +26,7 @@ jobs:
 
       - name: Login to GHCR
         run: |
-          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io -u ${{ github.actor }} --password-stdin
+          helm registry login ghcr.io -u ${{ github.actor }} --password "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Push Chart to GHCR
         run: |
