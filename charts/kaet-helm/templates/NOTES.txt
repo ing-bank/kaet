@@ -4,6 +4,6 @@ We are happy that you are using KAET to assert the security of your Kubernetes S
 
 You are using version {{ .Chart.Version }}.
 
-If there is any question you are free to reach the maintainers of KAET. You can find their contacts at https://github.com/ing-bank/kaet.
+If you have any questions, feel free to reach out to the maintainers of KAET. You can find their contacts at https://github.com/ing-bank/kaet.
 
 You can find the deployed jobs using `kubectl get jobs -l product=kaet`. And for pods `kubectl get pods -l product=kaet`.
