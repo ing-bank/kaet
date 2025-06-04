@@ -1,0 +1,42 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: sam-exec-role-binding
+  namespace: prod
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: exec-pod-role-in-prod
+subjects:
+  - kind: ServiceAccount
+    name: sam-sa
+    namespace: prod
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: frodo-spawn-pod
+  namespace: sauron
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: spawn-pod-role-sauron
+subjects:
+  - kind: ServiceAccount
+    name: frodo-sa
+    namespace: prod
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: jack
+  name: jackpot-rb
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: jackpot-access-local-pod-role
+subjects:
+  - kind: ServiceAccount
+    name: frodo-sa
+    namespace: prod
+---

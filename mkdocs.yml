@@ -1,0 +1,46 @@
+site_name: "KAET: Kubernetes Auto Exploit Tool"
+site_description: Analyze weaknesses in Role-Based Access Controls (RBAC) in Kubernetes Clusters
+edit_uri: ""
+copyright: Copyright &copy; 2025
+repo_url: https://github.com/ing-bank/kaet
+site_url: https://ing-bank.github.io/kaet/
+
+theme:
+    name: material
+    palette:
+        # Light mode
+        - media: "(prefers-color-scheme: light)"
+          scheme: default
+          primary: white
+          accent: deep orange
+          toggle:
+              icon: material/toggle-switch-off-outline
+              name: Switch to dark mode
+
+        # Dark mode
+        - media: "(prefers-color-scheme: dark)"
+          scheme: slate
+          primary: deep orange
+          accent: deep orange
+          toggle:
+              icon: material/toggle-switch
+              name: Switch to light mode
+
+    font: false
+    favicon: imgs/logo.jpeg
+    features:
+        - navigation.tracking
+        - navigation.sections
+        - header.autohide
+        - navigation.tabs
+        - navigation.top
+
+nav:
+    - index.md
+    - Getting Started:
+          - install-kaet.md
+          - use-kaet.md
+    - Demo:
+          - demo/index.md
+    - About:
+          - internals/index.md
