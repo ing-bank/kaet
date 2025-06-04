@@ -1,0 +1,18 @@
+serviceAccounts: []
+
+backoffLimit: 3
+
+labels:
+  product: kaet
+
+restart:
+  policy: Never
+
+image:
+  name: ghcr.io/ing-bank/kaet
+  tag: latest
+
+resource:
+  limits:
+    memory: '100Mi'
+    cpu: '50m'
