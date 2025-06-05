@@ -10,7 +10,7 @@ This walkthrough describes an example environment used during a security worksho
 
 ## Deploy
 
-To deploy the environment is necessary to use the files provided [here](https://github.com/ing-bank/kaet/tree/develop/docs/demo/deployments). Execute the following to start the environment:
+To deploy the environment, it is necessary to use the files provided [here](https://github.com/ing-bank/kaet/tree/develop/docs/demo/deployments). Execute the following to start the environment:
 
 ```bash
 git clone --depth 1 https://github.com/ing-bank/kaet
@@ -28,7 +28,7 @@ Your goal is to reach the underlying worker node and find the `/etc/kubernetes/k
 
 ## Using KAET
 
-As the manual penetration testing of this environment is cumbersome, we can use KAET to explore the aforementioned environment. For this we need to get sam's service account token and Kubernetes server URL:
+As the manual penetration testing of this environment is cumbersome, we can use KAET to explore the aforementioned environment. For this we need to get sam's service account token and the Kubernetes server URL:
 
 ```bash
 kubectl exec --rm -it pod/sam -n prod -- cat /var/run/secrets/kubernetes.io/serviceaccount/token

@@ -33,12 +33,12 @@
 - `pkg`: contains all functionality used in KAET that can be used as a package
   - `pkg/clouds`: contains packages related to cloud providers as Azure, Google Cloud, AWS, Vanilla Kubernetes, and so on
     - `pkg/clouds/azure`: contains all functionality to interact with Azure Cloud
-    - `pkg/clouds/gcp`: contains all functionality to interact with Google Cloud Provider (GCP)
+    - `pkg/clouds/gcp`: contains all functionality to interact with Google Cloud Platform (GCP)
     - `pkg/clouds/aws`: contains all functionality to interact with Amazon Web Services (AWS)
     - `pkg/clouds/kubernetes`: contains all functionality to interact with a Kubernetes cluster
       - `pkg/clouds/kubernetes/exploits`: contains all logic on how to exploit a Kubernetes Cluster
       - `pkg/clouds/kubernetes/exploits`: contains utility functions to help interact with a Kubernetes Cluster and run exploits
-    - `pkg/clouds/openshift`: contains all functionality specific to interact with Open Shift Clusters
+    - `pkg/clouds/openshift`: contains all functionality specific to interact with OpenShift Clusters
   - `pkg/kaet`: contains modules used while running KAET. Each module is an abstraction of processes
     - `pkg/kaet/discovery`: module with logic used to discover resources to be enumerated and exploited
     - `pkg/kaet/enumerate`: module that enumerates resources searching for permissions, secrets, and more

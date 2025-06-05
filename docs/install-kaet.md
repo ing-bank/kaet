@@ -20,7 +20,7 @@ go install
 
 ## Docker
 
-This setup pull KAET's latest Docker image, and make it available to use.
+This setup will pull KAET's latest Docker image and will make it available to use.
 
 ```bash
 docker pull ghcr.io/ing-bank/kaet:latest
