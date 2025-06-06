@@ -1,0 +1,65 @@
+site_name: "KAET: Kubernetes Auto Exploit Tool"
+site_description: Analyze weaknesses in Role-Based Access Controls (RBAC) in Kubernetes Clusters
+edit_uri: ""
+copyright: Copyright &copy; 2025
+repo_url: https://github.com/ing-bank/kaet
+site_url: https://ing-bank.github.io/kaet/
+
+theme:
+  name: material
+  icon:
+    logo: material/library-outline
+    repo: material/github
+  font: false
+  favicon: imgs/logo.jpeg
+
+  palette:
+    # Light mode
+    - scheme: default
+      media: "(prefers-color-scheme: light)"
+      primary: white
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    # Dark mode
+    - scheme: slate
+      media: "(prefers-color-scheme: dark)"
+      primary: deep orange
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+  features:
+    - navigation.tracking
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - content.code.copy
+
+nav:
+  - index.md
+  - Getting Started:
+      - install-kaet.md
+      - use-kaet.md
+  - Demo:
+      - demo/index.md
+  - About:
+      - internals/index.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ing-bank
+      name: GitHub
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences

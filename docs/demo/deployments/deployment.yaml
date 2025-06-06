@@ -1,0 +1,118 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jack
+  labels:
+    name: jack
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: prod
+  labels:
+    name: prod
+---
+apiVersion: v1
+kind: Namespace
+metadata: 
+  name: sauron
+  labels:
+    name: sauron
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sam
+  namespace: prod
+spec:
+  selector:
+    matchLabels:
+      app: sam
+  template:
+    metadata:
+      labels:
+        app: sam
+    spec:
+      serviceAccount: sam-sa
+      volumes:
+        - name: flag-vol
+          secret:
+            secretName: sam-flag
+      containers:
+        - name: sam-website
+          image: nginx:alpine
+          volumeMounts:
+            - name: flag-vol
+              readOnly: true
+              mountPath: /opt/sam
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frodo
+  namespace: prod
+spec:
+  selector:
+    matchLabels:
+      app: frodo
+  template:
+    metadata:
+      labels:
+        app: frodo
+    spec:
+      serviceAccount: frodo-sa
+      volumes:
+        - name: frodo-vol
+          secret:
+            secretName: frodo-flag
+      containers:
+        - name: frodo
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+            - containerPort: 9999
+          volumeMounts:
+            - name: frodo-vol
+              readOnly: true
+              mountPath: /var/www/html/frodo
+          resources:
+            limits:
+              memory: '128Mi'
+              cpu: '500m'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jackpot
+  namespace: jack
+spec:
+  selector:
+    matchLabels:
+      app: jackpot
+  template:
+    metadata:
+      labels:
+        app: jackpot
+    spec:
+      volumes:
+        - name: jackpot-vol
+          secret:
+            secretName: jackpot-flag
+      containers:
+        - name: jackpot
+          image: nginx:alpine
+          securityContext:
+            privileged: false
+            allowPrivilegeEscalation: false
+          resources:
+            limits:
+              memory: '128Mi'
+              cpu: '500m'
+          ports:
+            - containerPort: 80
+            - containerPort: 9999
+          volumeMounts:
+            - name: jackpot-vol
+              readOnly: true
+              mountPath: /jackpot
+---

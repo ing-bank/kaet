@@ -1,0 +1,42 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: exec-pod-role-in-prod
+  namespace: prod
+rules:
+  - apiGroups: ['']
+    resources: ['pods']
+    verbs: ['get', 'list', 'exec']
+  - apiGroups: ['']
+    resources: ['pods/exec']
+    verbs: ['*']
+  - apiGroups: ['']
+    resources: ['namespaces', 'namespace']
+    verbs: ['get', 'list']
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: spawn-pod-role-sauron
+  namespace: sauron
+rules:
+  - apiGroups: ['']
+    resources: ['pods']
+    verbs: ['get', 'read', 'update', 'create', 'list', 'exec']
+  - apiGroups: ['']
+    resources: ['pods/exec']
+    verbs: ['create', 'get', 'list', 'read', 'watch', 'exec', 'update']
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: jackpot-access-local-pod-role
+  namespace: jack
+rules:
+  - apiGroups: ['']
+    resources: ['pods']
+    verbs: ['get', 'list', 'exec']
+  - apiGroups: ['']
+    resources: ['pods/exec']
+    verbs: ['create', 'get', 'list', 'read', 'watch', 'exec', 'update']
+---

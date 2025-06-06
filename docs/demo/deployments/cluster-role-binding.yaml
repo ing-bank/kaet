@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: list-all-ns-pod-crb
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: list-all-ns-pod
+subjects:
+  - kind: ServiceAccount
+    name: frodo-sa
+    namespace: prod
+---
