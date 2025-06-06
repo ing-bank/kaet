@@ -4,7 +4,7 @@ This walkthrough details how to use KAET locally, in a [Docker](https://docs.doc
 
 ## Local
 
-```bash
+```bash linenums="1"
 > kaet -h
 
 #######################################
@@ -47,7 +47,7 @@ OUTPUT OPTIONS:
 
 Using Helm charts, you can deploy KAET with a single command. The following command pulls a Helm chart from Github Package Registry and publishes to a Kubernetes cluster.
 
-```bash
+```bash linenums="1"
 helm upgrade kaet oci://ghcr.io/ing-bank/kaet-helm:0.1.0 --version 0.1.0 -n your_namespace --set 'serviceAccounts={the-service-account-name-you-want-to-test}'
 ```
 
@@ -57,7 +57,7 @@ After running this command, Helm will create a Kubernetes Job in the cluster tha
 
 - Jobs
 
-```bash
+```bash linenums="1"
 kubectl get jobs -n your_namespace
 
 NAME       COMPLETIONS   DURATION   AGE
@@ -66,7 +66,7 @@ kaet-job   1/1           5m33s      8m39s
 
 - Pods
 
-```bash
+```bash linenums="1"
 kubectl get pods -n your_namespace
 
 NAME                                       READY   STATUS      RESTARTS   AGE
@@ -76,8 +76,8 @@ kaet-job-wpr4n                             1/1     Running     0          103s
 
 ## Docker
 
-```bash
-> docker run --rm ghcr.io/ing-bank/kaet:latest -h
+```bash linenums="1"
+docker run --rm ghcr.io/ing-bank/kaet:latest -h
 
 #######################################
 #                                     #
@@ -117,7 +117,7 @@ OUTPUT OPTIONS:
 
 ## Manually Creating a Kubernetes Job
 
-```bash
+```bash linenums="1"
 kubectl apply -f - <<EOF
 apiVersion: batch/v1
 kind: Job

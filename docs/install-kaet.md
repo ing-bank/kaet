@@ -12,7 +12,7 @@
 
 You can install KAET by cloning it's source code.
 
-```bash
+```bash linenums="1"
 git clone --depth 1 https://github.com/ing-bank/kaet
 cd kaet
 go install
@@ -22,7 +22,7 @@ go install
 
 This setup will pull KAET's latest Docker image and will make it available to use.
 
-```bash
+```bash linenums="1"
 docker pull ghcr.io/ing-bank/kaet:latest
 ```
 

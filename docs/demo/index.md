@@ -12,7 +12,7 @@ This walkthrough describes an example environment used during a security worksho
 
 To deploy the environment, it is necessary to use the files provided [here](https://github.com/ing-bank/kaet/tree/develop/docs/demo/deployments). Execute the following to start the environment:
 
-```bash
+```bash linenums="1"
 git clone --depth 1 https://github.com/ing-bank/kaet
 cd kaet/docs/demo/deployments
 kubectl apply -f .
@@ -20,7 +20,7 @@ kubectl apply -f .
 
 After the environment is properly setup, you can start the penetration testing from inside `sam` pod by running the following command:
 
-```bash
+```bash linenums="1"
 kubectl exec --rm -it pod/sam -n prod -- /bin/sh
 ```
 
@@ -30,7 +30,7 @@ Your goal is to reach the underlying worker node and find the `/etc/kubernetes/k
 
 As the manual penetration testing of this environment is cumbersome, we can use KAET to explore the aforementioned environment. For this we need to get sam's service account token and the Kubernetes server URL:
 
-```bash
+```bash linenums="1"
 kubectl exec --rm -it pod/sam -n prod -- cat /var/run/secrets/kubernetes.io/serviceaccount/token
 # the result should be a JWT in the following format 
 # base64(header).base64(body).base64(signature)
@@ -42,7 +42,7 @@ kind get kubeconfig -n playground | grep server | cut -d ':' -f 2- | sed -e 's/ 
 
 ### Running KAET
 
-```bash
+```bash linenums="1"
 kaet -u '<server_url>' -t '<service_account_token>'
 ```
 
