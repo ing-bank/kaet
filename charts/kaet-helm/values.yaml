@@ -11,6 +11,8 @@ restart:
 image:
   name: ghcr.io/ing-bank/kaet
   tag: latest
+  exec:
+    arguments: []
 
 resource:
   limits:
