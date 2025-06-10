@@ -45,7 +45,7 @@ OUTPUT OPTIONS:
 
 ## Helm Charts
 
-Using Helm charts, you can deploy KAET with a single command. The following command pulls a Helm chart from Github Package Registry and publishes to a Kubernetes cluster.
+Using Helm charts, you can deploy KAET with a single command. The following command pulls a Helm chart from Github Package Registry and publishes it to a Kubernetes cluster.
 
 ```bash linenums="1"
 helm upgrade kaet oci://ghcr.io/ing-bank/kaet-helm:0.1.0 --version 0.1.0 -n your_namespace --set 'serviceAccounts={the-service-account-name-you-want-to-test}'
