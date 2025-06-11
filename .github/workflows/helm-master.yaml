@@ -31,4 +31,4 @@ jobs:
       - name: Push Chart to GHCR
         run: |
           helm package charts/kaet-helm
-          helm push kaet-*.tgz oci://ghcr.io/ing-bank
+          helm push kaet-helm-*.tgz oci://ghcr.io/ing-bank
