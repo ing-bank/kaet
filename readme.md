@@ -199,10 +199,6 @@ kaet -verbose/-silent
 kaet -json
 ```
 
-## How does KAET work?
-
-Check how KAET is developed and how it is working [here](./docs/internals/index.md).
-
 ## Contributing
 
 Contributions are more than welcome! Please see our [contribution guidelines first](./CONTRIBUTING.md).
