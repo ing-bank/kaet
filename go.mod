@@ -1,6 +1,6 @@
 module github.com/ing-bank/kaet
 
-go 1.26.4
+go 1.26.0
 
 require (
 	github.com/golang-jwt/jwt/v5 v5.3.1

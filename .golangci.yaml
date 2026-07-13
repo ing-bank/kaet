@@ -1,5 +1,7 @@
+version: '2'
+
 linters:
-  disable-all: true
+  default: none
   enable:
     - bodyclose
     - copyloopvar
@@ -7,9 +9,9 @@ linters:
 
 output:
   formats:
-    - format: colored-line-number
-    - format: json
-      path: stderr
+    text: 
+      colors: true
+    json: {}
 
 run:
   timeout: "5m"
